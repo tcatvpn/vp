@@ -31,7 +31,7 @@ TIME=$(date +'%Y-%m-%d %H:%M:%S')
 RAMMS=$(free -m | awk 'NR==2 {print $2}')
 KEY="2145515560:AAE9WqfxZzQC-FYF1VUprICGNomVfv6OdTU"
 URL="https://api.telegram.org/bot$KEY/sendMessage"
-REPO="https://raw.githubusercontent.com/NevermoreSSH/VVV/main/"
+REPO="https://raw.githubusercontent.com/tcatvpn/vp/main/"
 APT="apt-get -y install "
 domain=$(cat /root/domain)
 start=$(date +%s)
@@ -143,7 +143,7 @@ function pasang_ssl() {
     mkdir /root/.acme.sh
     systemctl stop $STOPWEBSERVER
     systemctl stop nginx
-    curl https://raw.githubusercontent.com/NevermoreSSH/VVV/main/acme.sh -o /root/.acme.sh/acme.sh
+    curl https://raw.githubusercontent.com/tcatvpn/vp/main/acme.sh -o /root/.acme.sh/acme.sh
     chmod +x /root/.acme.sh/acme.sh
     /root/.acme.sh/acme.sh --upgrade --auto-upgrade
     /root/.acme.sh/acme.sh --set-default-ca --server letsencrypt
@@ -195,9 +195,9 @@ AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 NoNewPrivileges=true
 ExecStart=/usr/sbin/xray run -config /etc/xray/config.json
 Restart=on-failure
-RestartPreventExitStatus=23
-LimitNPROC=10000
-LimitNOFILE=1000000
+RestartPreventExitStatus=3
+LimitNPROC=10000000
+LimitNOFILE=10000000
 
 [Install]
 WantedBy=multi-user.target
